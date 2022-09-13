@@ -30,7 +30,8 @@ namespace SanyaLorik.Tools
         {
             get => target.GetType().GetFields(_fieldFlags)
                 .Where(field => field.CustomAttributes
-                    .Count(attribute => attribute.AttributeType == _type) != 0);
+                    .Count(attribute => attribute.AttributeType == _type) != 0)
+                .Where(field => field.FieldType.IsInterface == true);
         }
 
         private bool TryFitObjectField(FieldInfo field, out GameObject gameObject)
