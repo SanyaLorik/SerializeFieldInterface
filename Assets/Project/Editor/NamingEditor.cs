@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace SanyaLorik
+namespace SanyaLorik.Tools
 {
     public static class NamingEditor
     {

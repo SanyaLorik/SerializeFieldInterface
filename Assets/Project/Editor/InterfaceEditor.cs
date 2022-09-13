@@ -5,7 +5,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace SanyaLorik
+namespace SanyaLorik.Tools
 {
     [CustomEditor(typeof(MonoBehaviour), true)]
     public class InterfaceEditor : Editor

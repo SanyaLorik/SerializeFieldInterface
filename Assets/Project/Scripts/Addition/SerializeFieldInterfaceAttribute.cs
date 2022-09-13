@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SanyaLorik
+namespace SanyaLorik.Tools
 {
     [AttributeUsage(AttributeTargets.Field)]
     public class SerializeFieldInterfaceAttribute : Attribute

@@ -50,3 +50,4 @@ Assets/StreamingAssets/Android
 com.kyrylokuzyk.arfoundationremote
 ARFoundationRemoteInstaller
 *.meta
+*.xml
