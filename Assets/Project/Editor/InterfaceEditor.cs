@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace SanyaLorik.Tools
 {
-    [CustomEditor(typeof(MonoBehaviour), true)]
+    [CustomEditor(typeof(UnityEngine.Object), true)]
     public class InterfaceEditor : Editor
     {
         private const BindingFlags _fieldFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
@@ -21,7 +21,7 @@ namespace SanyaLorik.Tools
             {
                 if (TryFitObjectField(field, out GameObject gameObject) == false)
                     continue;
-                
+
                 SetValue(field, gameObject);
             }
         }
@@ -36,10 +36,10 @@ namespace SanyaLorik.Tools
 
         private bool TryFitObjectField(FieldInfo field, out GameObject gameObject)
         {
-            var fieldValue = field.GetValue(target);
+            var fieldValue = field.GetValue(target) as UnityEngine.Object;
             string fieldName = NamingEditor.Edit(field.Name);
-            
-            gameObject = EditorGUILayout.ObjectField(fieldName, fieldValue as UnityEngine.Object, typeof(object), true) as GameObject;
+
+            gameObject = EditorGUILayout.ObjectField(fieldName, fieldValue, typeof(object), true) as GameObject;
            
             return gameObject != null;
         }

@@ -53,3 +53,6 @@ ARFoundationRemoteInstaller
 *.xml
 *.xml
 .idea/.idea.SerializeFieldInterface/.idea/workspace.xml
+*.dwlt
+*.settings
+*.xml
