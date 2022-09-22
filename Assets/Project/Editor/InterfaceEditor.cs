@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,10 +17,10 @@ namespace SanyaLorik.Tools
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            
+
             foreach (FieldInfo field in Fields)
             {
-                if (TryFitObjectField(field, out GameObject gameObject) == false)
+                if (TryFitObjectField(field, out var gameObject) == false)
                     continue;
 
                 SetValue(field, gameObject);
@@ -37,10 +38,10 @@ namespace SanyaLorik.Tools
         private bool TryFitObjectField(FieldInfo field, out GameObject gameObject)
         {
             var fieldValue = field.GetValue(target) as UnityEngine.Object;
-            string fieldName = NamingEditor.Edit(field.Name);
-
+            var fieldName = NamingEditor.Edit(field.Name);
+            
             gameObject = EditorGUILayout.ObjectField(fieldName, fieldValue, typeof(object), true) as GameObject;
-           
+            
             return gameObject != null;
         }
 
